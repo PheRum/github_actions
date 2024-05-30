@@ -1,5 +1,6 @@
 # Простой workflow для развёртывания статического содержимого на GitHub Pages
 name: Deploy static content to Pages
+
 on:
   # Триггером выступает push в ветку master
   push:
@@ -13,8 +14,10 @@ permissions:
   pages: write # разрешаем перезаписывать github page
   id-token: write # Разрешаем использовать GITHUB_TOKEN
 
+env:
+  PUBLIC_PATH: /github_actions/
+
 jobs: # Секция jobs определяет этапы процесса
- 
   deploy:  # Создаётся одна задача deploy, имя может быть любым
     runs-on: ubuntu-latest # Определяет, в каком окружении будут запущены все команды этой задачи
     steps: # Перечень шагов, команд, которые будут выполнены в этом блоке
